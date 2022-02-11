@@ -11,7 +11,7 @@ RUN pip install -r /requirements.txt
 RUN apk del .tmp-build-deps
 
 RUN mkdir /watermark
-WORKDIR /watermark
+WORKDIR /watermark/watermark
 COPY ./watermark /watermark
 
 RUN adduser -D user
