@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Document(models.Model):
+    """Document object"""
     ticket_id=models.CharField(max_length=255, unique=True)
     content = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
