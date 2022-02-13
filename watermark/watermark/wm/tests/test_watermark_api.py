@@ -6,13 +6,8 @@ from rest_framework.test import APIClient
 
 from core.models import Document
 
-from wm.serializers import DocumentSerializer
 
-# TODO:
-# 1. make sure get works and tests pass (url, view and serializer)
-# 2. make sure posts works and tests pass (url, view and serializer)
-# 3. make sure background task and tests pass (function on post)
-# 4. make sure that the ticketid is == 23 character and unique
+
 GET_TICKET_URL = reverse('wm:doc_by_id')
 WATERMARK_URL = reverse('wm:watermark')
 
@@ -48,7 +43,7 @@ class PublicRecipeApiTests(TestCase):
 
     def test_post_to_watermark_doc_api(self):
         """Test that the watermark endpoint posts successfully"""
-        # subtest ticket_id
+
         payload = {
             'ticket_id': '0039544503-2029393-2933',
             'content': 'book',

@@ -3,6 +3,8 @@ from django.test import TestCase
 from core import models
 
 class ModelTest(TestCase):
+    """General Tests for models"""
+    
     def test_document_str(self):
         """Test the document string representation"""
         doc = models.Document.objects.create(
