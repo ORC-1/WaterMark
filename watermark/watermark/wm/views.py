@@ -6,10 +6,14 @@ from core.models import Document
 from wm import serializers, watermarker
 
 
-class GetDocByTicketId(viewsets.ModelViewSet):
+class BaseWaterMarkAttrViewSet(viewsets.ModelViewSet):
+    """Base viewset for Document attributes"""
+    serializer_class = serializers.DocumentSerializer
+
+
+class GetDocByTicketId(BaseWaterMarkAttrViewSet):
     """List Document in the database by ticketid"""
     queryset = Document.objects.all()
-    serializer_class = serializers.DocumentSerializer
 
     def get_queryset(self):
         """Return objects for the specified tickket ID"""
@@ -17,9 +21,8 @@ class GetDocByTicketId(viewsets.ModelViewSet):
         return self.queryset.filter(ticket_id=ticketid)
 
 
-class PostDocForWaterMark(viewsets.ModelViewSet):
+class PostDocForWaterMark(BaseWaterMarkAttrViewSet):
     """Manage documents in the database"""
-    serializer_class = serializers.DocumentSerializer
 
     def perform_create(self, serializer):
         """Async Create and watermark a new document"""
