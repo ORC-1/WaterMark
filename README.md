@@ -24,7 +24,7 @@ manager of choice by running:<br />
 you can call the services as follow:
  <br />
   1. Get Document by ticketid:<br />
-      127.0.0.1:8000/api/wm/doc_by_id?ticketid=<ticketid>
+      127.0.0.1:8000/api/wm/doc_by_id?ticketid=<ticketid> <br />
       eg:
         127.0.0.1:8000/api/wm/doc_by_id?ticketid=D4QRGtMiJU7j25WSnlg4YCM
   <br />
