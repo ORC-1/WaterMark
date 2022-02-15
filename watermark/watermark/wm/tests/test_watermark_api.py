@@ -45,7 +45,6 @@ class PublicRecipeApiTests(TestCase):
         """Test that the watermark endpoint posts successfully"""
 
         payload = {
-            'ticket_id': '0039544503-2029393-2933',
             'content': 'book',
             'title': 'Dark Code',
             'topic': 'Science',
@@ -54,13 +53,11 @@ class PublicRecipeApiTests(TestCase):
         res = self.client.post(WATERMARK_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(len(payload['ticket_id']), 23)
 
 
     def test_async_func_works(self):
         """Test that the get watermark service works in a nonblocking manner"""
         payload = {
-            'ticket_id': '7779544503-2029393-2933',
             'content': 'book',
             'title': 'Dark Code',
             'topic': 'Science',
@@ -77,7 +74,6 @@ class PublicRecipeApiTests(TestCase):
     def test_jornal_entry_has_no_topic(self):
         """Test that the watermark endpoint handles jornal entry correctly"""
         payload = {
-            'ticket_id': '0039544503-2029393-2933',
             'content': 'journal',
             'title': 'Dark Code',
             'topic': 'Science',
