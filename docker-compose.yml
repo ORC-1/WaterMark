@@ -17,6 +17,7 @@ services:
       - DB_NAME=app
       - DB_USER=postgres
       - DB_PASS=000011
+      - SECRET_KEY=(8m(x+prok57353xgk3l+g16isv(f+yai#qg@t1b9oln8-m
     depends_on:
       - db
 

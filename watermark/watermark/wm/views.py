@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-# from threading import Thread
 import asyncio
 
 from core.models import Document
@@ -17,7 +16,7 @@ class GetDocByTicketId(BaseWaterMarkAttrViewSet):
     queryset = Document.objects.all()
 
     def get_queryset(self):
-        """Return objects for the specified tickket ID"""
+        """Return objects for the specified ticket ID"""
         ticketid = self.request.query_params.get('ticketid')
         return self.queryset.filter(ticket_id=ticketid)
 
@@ -28,4 +27,3 @@ class PostDocForWaterMark(BaseWaterMarkAttrViewSet):
     def perform_create(self, serializer):
         """Async Create and watermark a new document"""
         asyncio.run(watermarker.watermarkdoc(serializer))
-        # Thread(target=watermarker.watermarkdoc(serializer)).start()
