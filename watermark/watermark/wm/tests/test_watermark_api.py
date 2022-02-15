@@ -58,6 +58,7 @@ class PublicRecipeApiTests(TestCase):
     def test_async_func_works(self):
         """Test that the get watermark service works in a nonblocking manner"""
         payload = {
+            'ticket_id':'7779544503-2029393-2933',
             'content': 'book',
             'title': 'Dark Code',
             'topic': 'Science',
