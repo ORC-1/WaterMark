@@ -1,5 +1,6 @@
 from rest_framework import viewsets
-from threading import Thread
+# from threading import Thread
+import asyncio
 
 from core.models import Document
 
@@ -26,4 +27,5 @@ class PostDocForWaterMark(BaseWaterMarkAttrViewSet):
 
     def perform_create(self, serializer):
         """Async Create and watermark a new document"""
-        Thread(target=watermarker.watermarkdoc(serializer)).start()
+        asyncio.run(watermarker.watermarkdoc(serializer))
+        # Thread(target=watermarker.watermarkdoc(serializer)).start()
